@@ -5,8 +5,8 @@ services:
     container_name: backend
     ports: 
       - "8000:8000"
-    # depends_on: 
-    #   - "mysql"
+    depends_on: 
+      - "mysql"
     tty: true
     volumes: 
       - "./backend/src:/root/sake-review"
@@ -14,16 +14,16 @@ services:
   #   build: ./frontend
   #   container_name: frontend
   #   tty: true
-  # mysql: 
-  #   build: ./mysql
-  #   container_name: mysql
-  #   command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-  #   env_file: 
-  #     - .env
-  #   volumes:
-  #     - ./mysql/data:/var/lib/mysql
-  #     - ./mysql/initdb.d:/docker-entrypoint-initdb.d
-  #   security_opt:
-  #     - seccomp:unconfined
-  #   tty: true
+  mysql: 
+    build: ./mysql
+    container_name: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment: 
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+    security_opt:
+      - seccomp:unconfined
+    tty: true
     
