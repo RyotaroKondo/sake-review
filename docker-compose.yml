@@ -8,8 +8,6 @@ services:
     depends_on: 
       - "mysql"
     tty: true
-    volumes: 
-      - "./backend/src:/root/sake-review"
   # frontend: 
   #   build: ./frontend
   #   container_name: frontend
@@ -26,4 +24,3 @@ services:
     security_opt:
       - seccomp:unconfined
     tty: true
-    
