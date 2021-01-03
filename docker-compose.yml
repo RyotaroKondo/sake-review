@@ -1,20 +1,35 @@
 version: "3"
 services:
-  backend: 
-    build: ./backend
-    container_name: backend
-    ports: 
-      - "8000:8000"
-    depends_on: 
-      - "mysql"
-    tty: true
+  # nginx:
+  #   build: ./nginx
+  #   container_name: sake-review-nginx
+  #   ports: 
+  #     - 8000:80
+  #   depends_on: 
+  #     - frontend
+  #     - backend
+  #   tty: true
+  # backend: 
+  #   build: ./backend
+  #   container_name: sake-review-backend
+  #   volumes: 
+  #     - ./backend/src:/root/sake-review
+  #     - /root/sake-review/vendor
+  #   depends_on: 
+  #     - mysql
+  #   tty: true
   # frontend: 
   #   build: ./frontend
-  #   container_name: frontend
+  #   container_name: sake-review-frontend
+  #   volumes: 
+  #     - ./frontend/app:/root/sake-review
+  #     - /root/sake-review/node_modules
+  #   depends_on: 
+  #     - backend
   #   tty: true
   mysql: 
     build: ./mysql
-    container_name: mysql
+    container_name: sake-review-mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment: 
       - MYSQL_ROOT_PASSWORD=password
