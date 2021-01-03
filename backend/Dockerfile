@@ -1,7 +1,6 @@
 FROM php:latest
-EXPOSE 8000
-COPY ./src /root/sake-review
 WORKDIR /root/sake-review
+COPY ./src /root/sake-review
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y zip unzip && \
