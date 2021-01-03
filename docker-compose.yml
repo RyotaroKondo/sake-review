@@ -1,32 +1,32 @@
 version: "3"
 services:
-  # nginx:
-  #   build: ./nginx
-  #   container_name: sake-review-nginx
-  #   ports: 
-  #     - 8000:80
-  #   depends_on: 
-  #     - frontend
-  #     - backend
-  #   tty: true
-  # backend: 
-  #   build: ./backend
-  #   container_name: sake-review-backend
-  #   volumes: 
-  #     - ./backend/src:/root/sake-review
-  #     - /root/sake-review/vendor
-  #   depends_on: 
-  #     - mysql
-  #   tty: true
-  # frontend: 
-  #   build: ./frontend
-  #   container_name: sake-review-frontend
-  #   volumes: 
-  #     - ./frontend/app:/root/sake-review
-  #     - /root/sake-review/node_modules
-  #   depends_on: 
-  #     - backend
-  #   tty: true
+  nginx:
+    build: ./nginx
+    container_name: sake-review-nginx
+    ports: 
+      - 8000:80
+    depends_on: 
+      - frontend
+      - backend
+    tty: true
+  backend: 
+    build: ./backend
+    container_name: sake-review-backend
+    volumes: 
+      - ./backend/src:/root/sake-review
+      - /root/sake-review/vendor
+    depends_on: 
+      - mysql
+    tty: true
+  frontend: 
+    build: ./frontend
+    container_name: sake-review-frontend
+    volumes: 
+      - ./frontend/app:/root/sake-review
+      - /root/sake-review/node_modules
+    depends_on: 
+      - backend
+    tty: true
   mysql: 
     build: ./mysql
     container_name: sake-review-mysql
