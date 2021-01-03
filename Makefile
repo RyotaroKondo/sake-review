@@ -41,10 +41,10 @@ exec:
 exec/nginx:
 	@make exec c=nginx
 # mysqlコンテナの中に入るタスク
-exex/db:
+exec/db:
 	@make exec c=mysql
 # backendコンテナの中に入るタスク
-exex/laravel:
+exec/laravel:
 	@make exec c=backend
 # frontendコンテナの中に入るタスク
 exec/react:
