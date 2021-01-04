@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS admin IDENTIFIED BY 'password';
+CREATE DATABASE IF NOT EXISTS sakereview;
+GRANT ALL ON sakereview.* TO admin;
