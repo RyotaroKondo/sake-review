@@ -22,5 +22,6 @@ Route::post('/register', [App\Http\Controllers\API\RegisterController::class, 'r
 Route::post('/login', [App\Http\Controllers\API\RegisterController::class, 'login']);
      
 Route::middleware('auth:api')->group( function () {
-    //Route::resource('products', ProductController::class);
+    // レビュー
+    // Route::resource('products', ProductController::class);
 });
